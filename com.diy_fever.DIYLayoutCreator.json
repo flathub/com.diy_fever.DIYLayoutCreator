@@ -109,8 +109,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/bancika/diy-layout-creator/releases/download/v4.17.0/diylc-4.17.0.zip",
-                    "sha256": "5b720bac9ca03cfae154dd19c3af22bf1a245810b5a39a6f3e7ac1d6f2c4da33",
+                    "url": "https://github.com/bancika/diy-layout-creator/releases/download/v4.18.0/diylc-4.18.0.zip",
+                    "sha256": "0d90dcabfc9ab3aafeb0a9cfbeab915bda55a023d2972feda3cc2060dbb8d725",
                     "strip-components": 0,
                     "dest": "diylc"
                 },
