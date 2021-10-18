@@ -35,4 +35,4 @@ export GDK_SCALE
 
 # Based on https://github.com/bancika/diy-layout-creator/blob/master/diylc/diylc-swing/run.sh
 # If graphical problems occur, it may need to add -Dsun.java2d.opengl=true and/or -Dsun.java2d.noddraw=true
-${JAVA} ${VM_ARGS} -javaagent:lib/jar-loader.jar -Dorg.diylc.scriptRun=true -Dfile.encoding=UTF-8 -cp diylc.jar:lib -Djava.library.path="${LD_LIBRARY_PATH}" ${MAINCLASS}
+exec ${JAVA} ${VM_ARGS} -javaagent:lib/jar-loader.jar -Dorg.diylc.scriptRun=true -Dfile.encoding=UTF-8 -cp diylc.jar:lib -Djava.library.path="${LD_LIBRARY_PATH}" ${MAINCLASS}
