@@ -26,7 +26,7 @@ LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/lib
 ##MAINCLASS
 MAINCLASS=org.diylc.DIYLCStarter
 ##JVM ARGUMENTS
-VM_ARGS="-Xms512m -Xmx2048m --add-opens java.base/java.util=ALL-UNNAMED --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.text=ALL-UNNAMED --add-opens java.desktop/java.awt=ALL-UNNAMED"
+VM_ARGS="-Xms512m -Xmx2048m --add-opens java.base/java.util=ALL-UNNAMED --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.text=ALL-UNNAMED --add-opens java.desktop/java.awt=ALL-UNNAMED --add-opens java.desktop/java.awt.font=ALL-UNNAMED --add-opens java.desktop/java.awt.geom=ALL-UNNAMED"
 
 cd /app/diylc
 #export CLASSPATH
