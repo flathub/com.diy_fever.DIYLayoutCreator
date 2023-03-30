@@ -1,7 +1,7 @@
 {
     "id": "com.diy_fever.DIYLayoutCreator",
     "runtime": "org.freedesktop.Platform",
-    "runtime-version": "20.08",
+    "runtime-version": "22.08",
     "command": "diylc",
     "sdk": "org.freedesktop.Sdk",
     "sdk-extensions": ["org.freedesktop.Sdk.Extension.openjdk11"],
@@ -109,7 +109,7 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/bancika/diy-layout-creator/releases/download/v4.35.0a/diylc-4.35.0.zip",
+                    "url": "https://github.com/bancika/diy-layout-creator/releases/download/v4.36.0/diylc-4.36.0.zip",
                     "sha256": "727d5f0c269c5e918e9482d752de4b24158d5d1433083edde0557740e12356b3", 
                     "strip-components": 0,
                     "dest": "diylc"
