@@ -1,7 +1,7 @@
 {
     "id": "com.diy_fever.DIYLayoutCreator",
     "runtime": "org.freedesktop.Platform",
-    "runtime-version": "22.08",
+    "runtime-version": "23.08",
     "command": "diylc",
     "sdk": "org.freedesktop.Sdk",
     "sdk-extensions": ["org.freedesktop.Sdk.Extension.openjdk11"],
