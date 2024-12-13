@@ -99,12 +99,8 @@
                 "ln -s /app/bin/xdg-open /app/bin/firefox",
                 "desktop-file-install --dir=/app/share/applications /app/diylc/com.diy_fever.DIYLayoutCreator.desktop",
                 "install -Dm644 /app/diylc/com.diy_fever.DIYLayoutCreator.metainfo.xml /app/share/metainfo/com.diy_fever.DIYLayoutCreator.metainfo.xml",
-                "for i in 128 256; do
-                    convert /app/diylc/icons/icon_512x512.png -resize ${i}x${i} /app/diylc/icons/icon_${i}x${i}.png
-                done",
-                "for i in 128 256 512; do
-                    install -Dm644 /app/diylc/icons/icon_${i}x${i}.png ${FLATPAK_DEST}/share/icons/hicolor/${i}x${i}/apps/com.diy_fever.DIYLayoutCreator.png
-                done"
+                "for i in 128 256; do \\n convert /app/diylc/icons/icon_512x512.png -resize ${i}x${i} /app/diylc/icons/icon_${i}x${i}.png \\n done",
+                "for i in 128 256 512; do \\n install -Dm644 /app/diylc/icons/icon_${i}x${i}.png ${FLATPAK_DEST}/share/icons/hicolor/${i}x${i}/apps/com.diy_fever.DIYLayoutCreator.png \\n done"
             ],
             "sources": [
                 {
