@@ -1,10 +1,12 @@
 {
     "id": "com.diy_fever.DIYLayoutCreator",
     "runtime": "org.freedesktop.Platform",
-    "runtime-version": "22.08",
+    "runtime-version": "24.08",
     "command": "diylc",
     "sdk": "org.freedesktop.Sdk",
-    "sdk-extensions": ["org.freedesktop.Sdk.Extension.openjdk11"],
+    "sdk-extensions": [
+        "org.freedesktop.Sdk.Extension.openjdk11"
+    ],
     "finish-args": [
         "--env=PATH=/app/jre/bin:/app/bin:/usr/bin",
         "--env=JAVA_HOME=/app/jre",
@@ -28,11 +30,11 @@
                 "make install PREFIX=/app"
             ],
             "sources": [
-              {
-                "type": "git",
-                "url": "https://github.com/tamirzb/xgetres",
-                "tag": "1.0"
-              }
+                {
+                    "type": "git",
+                    "url": "https://github.com/tamirzb/xgetres",
+                    "tag": "1.0"
+                }
             ]
         },
         {
@@ -48,42 +50,44 @@
         },
         {
             "name": "imagemagick",
-            "cleanup": ["*"],
+            "cleanup": [
+                "*"
+            ],
             "config-opts": [
-              "--enable-static=no",
-              "--disable-docs",
-              "--disable-deprecated",
-              "--without-autotrace",
-              "--without-bzlib",
-              "--without-djvu",
-              "--without-dps",
-              "--without-fftw",
-              "--without-fontconfig",
-              "--without-fpx",
-              "--without-freetype",
-              "--without-gvc",
-              "--without-jbig",
-              "--without-jpeg",
-              "--without-lcms",
-              "--without-lzma",
-              "--without-magick-plus-plus",
-              "--without-openexr",
-              "--without-openjp2",
-              "--without-pango",
-              "--without-raqm",
-              "--without-tiff",
-              "--without-webp",
-              "--without-wmf",
-              "--without-x",
-              "--without-xml",
-              "--without-zlib"
+                "--enable-static=no",
+                "--disable-docs",
+                "--disable-deprecated",
+                "--without-autotrace",
+                "--without-bzlib",
+                "--without-djvu",
+                "--without-dps",
+                "--without-fftw",
+                "--without-fontconfig",
+                "--without-fpx",
+                "--without-freetype",
+                "--without-gvc",
+                "--without-jbig",
+                "--without-jpeg",
+                "--without-lcms",
+                "--without-lzma",
+                "--without-magick-plus-plus",
+                "--without-openexr",
+                "--without-openjp2",
+                "--without-pango",
+                "--without-raqm",
+                "--without-tiff",
+                "--without-webp",
+                "--without-wmf",
+                "--without-x",
+                "--without-xml",
+                "--without-zlib"
             ],
             "sources": [
-              {
-                "type": "archive",
-                "url": "https://imagemagick.org/archive/releases/ImageMagick-7.0.8-68.tar.xz",
-                "sha256": "3639baa6ceb5db38b1b48a4b917f90fe007ca7edca1f7894d5555a0bc746305a"
-              }
+                {
+                    "type": "archive",
+                    "url": "https://imagemagick.org/archive/releases/ImageMagick-7.0.8-68.tar.xz",
+                    "sha256": "3639baa6ceb5db38b1b48a4b917f90fe007ca7edca1f7894d5555a0bc746305a"
+                }
             ]
         },
         {
@@ -99,24 +103,20 @@
                 "ln -s /app/bin/xdg-open /app/bin/firefox",
                 "desktop-file-install --dir=/app/share/applications /app/diylc/com.diy_fever.DIYLayoutCreator.desktop",
                 "install -Dm644 /app/diylc/com.diy_fever.DIYLayoutCreator.metainfo.xml /app/share/metainfo/com.diy_fever.DIYLayoutCreator.metainfo.xml",
-                "for i in 128 256; do
-                    convert /app/diylc/icons/icon_512x512.png -resize ${i}x${i} /app/diylc/icons/icon_${i}x${i}.png
-                done",
-                "for i in 128 256 512; do
-                    install -Dm644 /app/diylc/icons/icon_${i}x${i}.png ${FLATPAK_DEST}/share/icons/hicolor/${i}x${i}/apps/com.diy_fever.DIYLayoutCreator.png
-                done"
+                "for i in 128 256; do \n convert /app/diylc/icons/icon_512x512.png -resize ${i}x${i} /app/diylc/icons/icon_${i}x${i}.png \n done",
+                "for i in 128 256 512; do \n install -Dm644 /app/diylc/icons/icon_${i}x${i}.png ${FLATPAK_DEST}/share/icons/hicolor/${i}x${i}/apps/com.diy_fever.DIYLayoutCreator.png \n done"
             ],
             "sources": [
                 {
                     "type": "archive",
                     "url": "https://github.com/bancika/diy-layout-creator/releases/download/v4.37.0/diylc-4.37.0.zip",
-                    "sha256": "307c2725fb162cda2dcbe01b65bec70743627a5f45d158526aa8d66249d18606", 
+                    "sha256": "307c2725fb162cda2dcbe01b65bec70743627a5f45d158526aa8d66249d18606",
                     "strip-components": 0,
                     "dest": "diylc"
                 },
                 {
-                  "type": "file",
-                  "path": "diylc.sh"
+                    "type": "file",
+                    "path": "diylc.sh"
                 }
             ]
         }
