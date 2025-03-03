@@ -5,7 +5,7 @@
     "command": "diylc",
     "sdk": "org.freedesktop.Sdk",
     "sdk-extensions": [
-        "org.freedesktop.Sdk.Extension.openjdk11"
+        "org.freedesktop.Sdk.Extension.openjdk17"
     ],
     "finish-args": [
         "--env=PATH=/app/jre/bin:/app/bin:/usr/bin",
@@ -19,6 +19,7 @@
         "--filesystem=xdg-documents",
         "--filesystem=xdg-download",
         "--filesystem=xdg-pictures",
+        "--filesystem=home",
         "--persist=diylc"
     ],
     "modules": [
@@ -109,8 +110,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/bancika/diy-layout-creator/releases/download/v4.39.0/diylc-4.39.0.zip",
-                    "sha256": "7ff4e6623ca033baf231a6d3b92477635071b409afc8824fff15357e437ee1a5",
+                    "url": "https://github.com/bancika/diy-layout-creator/releases/download/v4.40.0/diylc-4.40.0.zip",
+                    "sha256": "8f2c799218ee8252d9dba34f4448f513d15edefc8fbfca2cc89d781789602ff7",
                     "strip-components": 0,
                     "dest": "diylc"
                 },
