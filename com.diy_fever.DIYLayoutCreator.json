@@ -5,7 +5,7 @@
     "command": "diylc",
     "sdk": "org.freedesktop.Sdk",
     "sdk-extensions": [
-        "org.freedesktop.Sdk.Extension.openjdk17"
+        "org.freedesktop.Sdk.Extension.openjdk21"
     ],
     "finish-args": [
         "--env=PATH=/app/jre/bin:/app/bin:/usr/bin",
@@ -34,7 +34,8 @@
                 {
                     "type": "git",
                     "url": "https://github.com/tamirzb/xgetres",
-                    "tag": "1.0"
+                    "tag": "1.0",
+                    "commit": "7dd6aa2e3a469382ba09152710a5bb4abb3fbc9c"
                 }
             ]
         },
@@ -45,7 +46,8 @@
                 {
                     "type": "git",
                     "url": "https://github.com/flatpak/flatpak-xdg-utils.git",
-                    "tag": "1.0.4"
+                    "tag": "1.0.4",
+                    "commit": "d7a5ee99f91ccf16f6c04f09c8b41888220cbf18"
                 }
             ]
         },
@@ -86,8 +88,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://imagemagick.org/archive/releases/ImageMagick-7.0.8-68.tar.xz",
-                    "sha256": "3639baa6ceb5db38b1b48a4b917f90fe007ca7edca1f7894d5555a0bc746305a"
+                    "url": "https://github.com/ImageMagick/ImageMagick/archive/refs/tags/7.1.2-26.tar.gz",
+                    "sha256": "d63594e334e1c410f600fb9370d78d49e4dc6f315722ca4ba083e864e5c354cb"
                 }
             ]
         },
@@ -95,29 +97,37 @@
             "name": "diylc",
             "buildsystem": "simple",
             "build-commands": [
-                "/usr/lib/sdk/openjdk11/install.sh",
+                "/usr/lib/sdk/openjdk21/install.sh",
                 "install -d /app/diylc/",
                 "mv diylc/* /app/diylc/",
                 "install -Dm755 diylc.sh /app/bin/diylc"
             ],
             "post-install": [
                 "ln -s /app/bin/xdg-open /app/bin/firefox",
-                "desktop-file-install --dir=/app/share/applications /app/diylc/com.diy_fever.DIYLayoutCreator.desktop",
-                "install -Dm644 /app/diylc/com.diy_fever.DIYLayoutCreator.metainfo.xml /app/share/metainfo/com.diy_fever.DIYLayoutCreator.metainfo.xml",
-                "for i in 128 256; do\n    convert /app/diylc/icons/icon_512x512.png -resize ${i}x${i} /app/diylc/icons/icon_${i}x${i}.png\n    done",
+                "desktop-file-install --dir=/app/share/applications com.diy_fever.DIYLayoutCreator.desktop",
+                "install -Dm644 com.diy_fever.DIYLayoutCreator.metainfo.xml /app/share/metainfo/com.diy_fever.DIYLayoutCreator.metainfo.xml",
+                "for i in 128 256; do\n    magick /app/diylc/icons/icon_512x512.png -resize ${i}x${i} /app/diylc/icons/icon_${i}x${i}.png\n    done",
                 "for i in 128 256 512; do\n    install -Dm644 /app/diylc/icons/icon_${i}x${i}.png ${FLATPAK_DEST}/share/icons/hicolor/${i}x${i}/apps/com.diy_fever.DIYLayoutCreator.png\n    done"
             ],
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/bancika/diy-layout-creator/releases/download/v4.40.0/diylc-4.40.0.zip",
-                    "sha256": "8f2c799218ee8252d9dba34f4448f513d15edefc8fbfca2cc89d781789602ff7",
-                    "strip-components": 0,
+                    "url": "https://github.com/bancika/diy-layout-creator/releases/download/v6.1.0/diylc-6.1.0-universal.zip",
+                    "sha256": "c11e9face8ac33542ce0868576d6625adc197faabfa3343499c147c78d638098",
+                    "strip-components": 1,
                     "dest": "diylc"
                 },
                 {
                     "type": "file",
                     "path": "diylc.sh"
+                },
+                {
+                    "type": "file",
+                    "path": "com.diy_fever.DIYLayoutCreator.desktop"
+                },
+                {
+                    "type": "file",
+                    "path": "com.diy_fever.DIYLayoutCreator.metainfo.xml"
                 }
             ]
         }

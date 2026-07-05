@@ -26,7 +26,7 @@ LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/lib
 ##MAINCLASS
 MAINCLASS=org.diylc.DIYLCStarter
 ##JVM ARGUMENTS
-VM_ARGS="-Xms512m -Xmx2048m --add-opens java.base/java.util=ALL-UNNAMED --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.text=ALL-UNNAMED --add-opens java.desktop/java.awt=ALL-UNNAMED --add-opens java.desktop/java.awt.font=ALL-UNNAMED --add-opens java.desktop/java.awt.geom=ALL-UNNAMED"
+VM_ARGS="-Xms1024m -Xmx4096m --add-exports java.desktop/com.apple.eawt.event=ALL-UNNAMED --add-exports java.desktop/com.apple.eio=ALL-UNNAMED --add-opens java.base/java.util=ALL-UNNAMED --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.text=ALL-UNNAMED --add-opens java.desktop/java.awt=ALL-UNNAMED --add-opens java.desktop/java.awt.font=ALL-UNNAMED --add-opens java.desktop/java.awt.geom=ALL-UNNAMED"
 
 cd /app/diylc
 #export CLASSPATH
@@ -35,4 +35,4 @@ export GDK_SCALE
 
 # Based on https://github.com/bancika/diy-layout-creator/blob/master/diylc/diylc-swing/run.sh
 # If graphical problems occur, it may need to add -Dsun.java2d.opengl=true and/or -Dsun.java2d.noddraw=true
-exec ${JAVA} ${VM_ARGS} -javaagent:lib/jar-loader.jar -Dorg.diylc.scriptRun=true -Dfile.encoding=UTF-8 -cp diylc.jar:lib -Djava.library.path="${LD_LIBRARY_PATH}" ${MAINCLASS}
+exec ${JAVA} ${VM_ARGS} -Dorg.diylc.scriptRun=true -Dfile.encoding=UTF-8 -cp diylc.jar -Djava.library.path="${LD_LIBRARY_PATH}" ${MAINCLASS} "$@"
