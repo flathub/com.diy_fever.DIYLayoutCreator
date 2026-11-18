@@ -1,12 +1,13 @@
 {
     "id": "com.diy_fever.DIYLayoutCreator",
     "runtime": "org.freedesktop.Platform",
-    "runtime-version": "24.08",
-    "command": "diylc",
+    "runtime-version": "26.08",
     "sdk": "org.freedesktop.Sdk",
     "sdk-extensions": [
-        "org.freedesktop.Sdk.Extension.openjdk17"
+        "org.freedesktop.Sdk.Extension.openjdk21"
     ],
+    "command": "diylc",
+    "rename-icon": "icon_512x512",
     "finish-args": [
         "--env=PATH=/app/jre/bin:/app/bin:/usr/bin",
         "--env=JAVA_HOME=/app/jre",
@@ -16,108 +17,37 @@
         "--socket=pulseaudio",
         "--share=network",
         "--device=dri",
-        "--filesystem=xdg-documents",
-        "--filesystem=xdg-download",
-        "--filesystem=xdg-pictures",
         "--filesystem=home",
         "--persist=diylc"
     ],
     "modules": [
         {
-            "name": "xgetres",
-            "buildsystem": "simple",
-            "build-commands": [
-                "make",
-                "make install PREFIX=/app"
-            ],
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://github.com/tamirzb/xgetres",
-                    "tag": "1.0"
-                }
-            ]
-        },
-        {
-            "name": "flatpak-xdg-utils",
-            "buildsystem": "meson",
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://github.com/flatpak/flatpak-xdg-utils.git",
-                    "tag": "1.0.4"
-                }
-            ]
-        },
-        {
-            "name": "imagemagick",
-            "cleanup": [
-                "*"
-            ],
-            "config-opts": [
-                "--enable-static=no",
-                "--disable-docs",
-                "--disable-deprecated",
-                "--without-autotrace",
-                "--without-bzlib",
-                "--without-djvu",
-                "--without-dps",
-                "--without-fftw",
-                "--without-fontconfig",
-                "--without-fpx",
-                "--without-freetype",
-                "--without-gvc",
-                "--without-jbig",
-                "--without-jpeg",
-                "--without-lcms",
-                "--without-lzma",
-                "--without-magick-plus-plus",
-                "--without-openexr",
-                "--without-openjp2",
-                "--without-pango",
-                "--without-raqm",
-                "--without-tiff",
-                "--without-webp",
-                "--without-wmf",
-                "--without-x",
-                "--without-xml",
-                "--without-zlib"
-            ],
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://imagemagick.org/archive/releases/ImageMagick-7.0.8-68.tar.xz",
-                    "sha256": "3639baa6ceb5db38b1b48a4b917f90fe007ca7edca1f7894d5555a0bc746305a"
-                }
-            ]
-        },
-        {
             "name": "diylc",
             "buildsystem": "simple",
             "build-commands": [
-                "/usr/lib/sdk/openjdk11/install.sh",
-                "install -d /app/diylc/",
-                "mv diylc/* /app/diylc/",
-                "install -Dm755 diylc.sh /app/bin/diylc"
+                "/usr/lib/sdk/openjdk21/install.sh",
+                "install -Dm644 diylc.jar -t /app/bin/",
+                "install -Dm755 run.sh /app/bin/diylc",
+                "install -Dm644 icons/icon_512x512.png -t /app/share/icons/hicolor/512x512/apps/",
+                "install -Dm644 ${FLATPAK_ID}.metainfo.xml -t /app/share/metainfo/",
+                "install -Dm644 ${FLATPAK_ID}.desktop -t /app/share/applications/"
             ],
             "post-install": [
-                "ln -s /app/bin/xdg-open /app/bin/firefox",
-                "desktop-file-install --dir=/app/share/applications /app/diylc/com.diy_fever.DIYLayoutCreator.desktop",
-                "install -Dm644 /app/diylc/com.diy_fever.DIYLayoutCreator.metainfo.xml /app/share/metainfo/com.diy_fever.DIYLayoutCreator.metainfo.xml",
-                "for i in 128 256; do\n    convert /app/diylc/icons/icon_512x512.png -resize ${i}x${i} /app/diylc/icons/icon_${i}x${i}.png\n    done",
-                "for i in 128 256 512; do\n    install -Dm644 /app/diylc/icons/icon_${i}x${i}.png ${FLATPAK_DEST}/share/icons/hicolor/${i}x${i}/apps/com.diy_fever.DIYLayoutCreator.png\n    done"
+                "ln -s /app/bin/xdg-open /app/bin/firefox"
             ],
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/bancika/diy-layout-creator/releases/download/v4.40.0/diylc-4.40.0.zip",
-                    "sha256": "8f2c799218ee8252d9dba34f4448f513d15edefc8fbfca2cc89d781789602ff7",
-                    "strip-components": 0,
-                    "dest": "diylc"
+                    "url": "https://github.com/bancika/diy-layout-creator/releases/download/v6.10.0/diylc-6.10.0-universal.zip",
+                    "sha256": "630b80ed0158dfe1d93a4bc76e9fe65761f3046e22635e2aad816d27f03e00c6"
                 },
                 {
                     "type": "file",
-                    "path": "diylc.sh"
+                    "path": "com.diy_fever.DIYLayoutCreator.desktop"
+                },
+                {
+                    "type": "file",
+                    "path": "com.diy_fever.DIYLayoutCreator.metainfo.xml"
                 }
             ]
         }

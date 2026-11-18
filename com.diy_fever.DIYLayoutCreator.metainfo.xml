@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>com.diy_fever.DIYLayoutCreator</id>
+  <launchable type="desktop-id">com.diy_fever.DIYLayoutCreator.desktop</launchable>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-only</project_license>
+  <developer_name>Branislav Stojkovic (bancika)</developer_name>
+  <name>DIY Layout Creator</name>
+  <summary>Circuit layout design tool supporting PCB, vero-board, point-to-point, perf-board and guitar wiring diagrams</summary>
+  <description>
+    <p>
+      DIY Layout Creator (DIYLC in short) is a powerful, but simple to use and intuitive tool
+      for visualizing electronic circuit schematic and layout diagrams. It provides a simple
+      WYSIWYG interface and supports designing PCB, vero-board, point-to-point, perf-board
+      and guitar wiring diagrams as well as circuit schematics quickly and without the steep learning curve.
+    </p>
+    <p>
+      In addition to drawing, the projects can be shared with other users through the integrated 'Cloud'
+      feature. Guitar wiring diagrams can be analyzed and debugged.
+    </p>
+    <p>
+      DIYLC is geared towards DIY hobby enthusiasts and is developed by an enthusiast with the help of
+      the large community of DIY builders.
+    </p>
+  </description>
+  <screenshots>
+    <screenshot type="default">
+    <image type="source">http://diy-fever.com/wordpress/wp-content/gallery/diylc/diylc_3_36_rangemaster.png</image>
+    <caption>First look</caption>
+    </screenshot>
+    <screenshot>
+    <image type="source">https://scfxguide.files.wordpress.com/2016/01/diylc1-e1453557339678.png</image>
+    <caption>Second look</caption>
+    </screenshot>
+  </screenshots>
+  <url type="homepage">https://github.com/bancika/diy-layout-creator</url>
+  <url type="bugtracker">https://github.com/bancika/diy-layout-creator/issues</url>
+  <url type="donation">http://diy-fever.com/donate</url>
+  <url type="help">https://github.com/bancika/diy-layout-creator/tree/wiki</url>
+  <url type="faq">https://github.com/bancika/diy-layout-creator/blob/wiki/FAQ.md</url>
+  <update_contact>nbenitezl_AT_gmail.com</update_contact>
+  <content_rating type="oars-1.1"/>
+  <releases>
+     <release version="6.10.0" date="2026-11-06">
+         <url>https://github.com/bancika/diy-layout-creator/releases/tag/v6.10.0</url>
+     </release>
+  </releases>
+</component>
